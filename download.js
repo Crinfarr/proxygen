@@ -38,6 +38,7 @@ cards.forEach(card => {
     };
     scryfall.getCard(obj.set, obj.num, (err, c) => {
         if (err) console.error(err);
+        process.stdout.write(c.name+'                                      \r');
         let outC =
             //some garbage autoformatting dw about it
             `    notes: 
