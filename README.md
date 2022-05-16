@@ -15,3 +15,7 @@ node download.js
 You can change the borders or convert to pngs in [Magic Set Editor](https://magicseteditor.boards.net/) (although if you didn't know that, I'm surprised you've read this far.)
 
 For making cards printable, I reccommend [mtg-print.com](https://mtg-print.com), as they have an "upload custom card" option and a quantity selector.
+
+# KNOWN ERRORS
+* Currently doesn't work with double faced/multi cast cards. I'll get to fixing this eventually.
+* Currently slightly broken with planeswalkers. I'll fix this eventually too.
