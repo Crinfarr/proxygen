@@ -45,12 +45,15 @@ cards.forEach(card => {
     time_created: 2022-05-13 03:20:32
     time_modified: 2022-05-13 03:25:21
     name: ${c.name}
-    casting_cost: ${c.mana_cost.replace(/[\{\}]/gm, '')}
-    image: image${(() => {getImg(c.image_uris.art_crop, i); return i++;})()}
+    casting_cost: ${(c.mana_cost)?c.mana_cost.replace(/[\{\}]/gm, ''):''}
+    image: ${(() => {
+        if (!c.image_uris) return '';
+        getImg(c.image_uris.art_crop, i); return `image${i++}`;
+    })()}
     rarity: ${(c.rarity == 'mythic')?'mythic rare':c.rarity}
     super_type: <word-list-type>${c.type_line.split(' — ')[0]}</word-list-type>
     sub_type: ${(c.type_line.split(' — ').length < 2)?'':c.type_line.split(' — ')[1]}
-    rule_text: \n\t\t${c.oracle_text.replace(/\n/gm, "\n\t\t").replace(/\{/gm, "<sym>").replace(/\}/gm, "</sym>")}
+    rule_text: \n\t\t${(c.oracle_text)?c.oracle_text.replace(/\n/gm, "\n\t\t").replace(/\{/gm, "<sym>").replace(/\}/gm, "</sym>"):''}
     flavor_text: 
     power: ${(c.power !== undefined)?c.power:''}
     toughness: ${(c.toughness !== undefined)?c.toughness:''}
